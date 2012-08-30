@@ -6,6 +6,9 @@ require 'sprockets'
 require 'sprockets/engines'
 require 'sprockets-vendor_gems'
 
+# ghetto
+require 'haml_coffee_assets'
+
 module Jasmine::Headless
   class FilesList
     include FileChecker
@@ -71,7 +74,7 @@ module Jasmine::Headless
       def add_haml_coffee_compiled_asset_path(asset_paths)
         # find the gem asset path that contains the hamlcoffee.js.coffee.erb
         haml_coffee_gem_asset_path = asset_paths.find { |path| path =~ /haml_coffee_assets/ }
-        return unless haml_coffee_gem_asset_path 
+        return unless haml_coffee_gem_asset_path
 
         # compile the erb file into hamlcoffee.js.coffee
         compiled_haml_coffee_template = ERB.new(File.read(File.join(haml_coffee_gem_asset_path, "hamlcoffee.js.coffee.erb"))).result(binding)

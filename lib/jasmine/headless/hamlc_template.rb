@@ -1,6 +1,6 @@
 module Jasmine::Headless
   class HamlcTemplate < HamlCoffeeAssets::Tilt::TemplateHandler
-    
+
     self.default_mime_type = 'application/javascript'
 
     def prepare ; end
